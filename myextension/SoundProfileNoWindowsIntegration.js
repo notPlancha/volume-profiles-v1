@@ -42,9 +42,64 @@
     Spicetify.Player.setVolume(parseFloat(SoundProfile3));
   }).register();
 
-  var Controls = document.getElementsByClassName('ExtraControls');
+  var controls = document.getElementsByClassName('ExtraControls')[0];
 
-  
+
+  var SoundProfiles = [];
+
+  for (var i = 3; i > 0; i--) {
+    var volume = Spicetify.LocalStorage.get("SoundProfile" + i);
+    if(volume === null){
+      switch(i){
+        case 1:
+          volume = "0.5";
+          break;
+        case 2:
+          volume = "0.3";
+          break;
+        case 3:
+          volume = "0.8";
+          break;
+      }
+      Spicetify.LocalStorage.set("SoundProfile" + i, volume);
+    }
+    var path;
+    switch(i){
+      //TODO do path for svg
+      case 1:
+        path = "";
+        break;
+      case 2:
+        path = "";
+        break;
+      case 3:
+        path = "";
+        break;
+    }
+    var newDiv = document.createElement('div');
+    newDiv.id = "SoundProfile" + i;
+    newDiv.innerHTML = `
+      <button class="control-button" aria-label="Sound Profile $(i)" title="Sound Profile $(i)">
+        <svg role="img" height="16" width="16" viewBox="0 0 16 16" style="fill:currentcolor">
+          <path d="M6.064 10.229l-2.418 2.418L2 11v4h4l-1.647-1.646 2.418-2.418-.707-.707zM11 2l1.647 1.647-2.418 2.418.707.707 2.418-2.418L15 6V2h-4z">
+            <!--TODO change svg image-->
+          </path>
+        </svg>
+      </button>`;
+    newDiv.addEventListener("click", function(){
+      Spicetify.Player.setVolume(parseFloat(volume));
+    });
+
+    newDiv.addEventListener("contextmenu", function(){//check if working
+      if(confirm("Save current volume to SoundProfile1?")){
+        var sound = Spicetify.Player.getVolume();
+        Spicetify.LocalStorage.set("SoundProfile1", volume);
+      }
+    })
+    controls.insertBefore(newDiv, controls.firstElementChild);
+  }
+
+
 
   //TODO
   //new Spicetify.Menu

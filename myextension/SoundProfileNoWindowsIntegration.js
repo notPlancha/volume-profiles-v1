@@ -207,7 +207,7 @@ var Arrive = function(e, t, n) {
     }
 }(window, "undefined" == typeof jQuery ? null : jQuery, void 0);
 
-function SoundProfiles(){
+function SoundProfiles() {
   if (!Spicetify.LocalStorage || !Spicetify.Menu || !Spicetify.Player || !Spicetify.showNotification) {
     setTimeout(SoundProfiles, 1000);
     return;
@@ -267,27 +267,28 @@ function SoundProfiles(){
     switch (i) {
       //TODO do path for svg
       case 1:
-        path = "";
+        path = "M10.04 5.984l.658-.77q.548.548.858 1.278.31.73.31 1.54 0 .54-.144 1.055-.143.516-.4.957-.259.44-.624.805l-.658-.77q.825-.865.825-2.047 0-1.183-.825-2.048zM0 11.032v-6h2.802l5.198-3v12l-5.198-3H0zm7 1.27v-8.54l-3.929 2.27H1v4h2.071L7 12.302z";
         break;
       case 2:
-        path = "";
+        path = "M0 11.032v-6h2.802l5.198-3v12l-5.198-3H0zm7 1.27v-8.54l-3.929 2.27H1v4h2.071L7 12.302zm4.464-2.314q.401-.925.401-1.956 0-1.032-.4-1.957-.402-.924-1.124-1.623L11 3.69q.873.834 1.369 1.957.496 1.123.496 2.385 0 1.262-.496 2.385-.496 1.123-1.369 1.956l-.659-.762q.722-.698 1.123-1.623z";
         break;
       case 3:
-        path = "";
+        path = "M12.945 1.379l-.652.763c1.577 1.462 2.57 3.544 2.57 5.858s-.994 4.396-2.57 5.858l.651.763a8.966 8.966 0 00.001-13.242zm-2.272 2.66l-.651.763a4.484 4.484 0 01-.001 6.397l.651.763c1.04-1 1.691-2.404 1.691-3.961s-.65-2.962-1.69-3.962zM0 5v6h2.804L8 14V2L2.804 5H0zm7-1.268v8.536L3.072 10H1V6h2.072L7 3.732z";
         break;
     }
 
     var newDiv = document.createElement('div');
     newDiv.id = "SoundProfile" + i;
     newDiv.innerHTML = `
-        <button class="control-button" aria-label="Sound Profile $(i)" title="Sound Profile $(i)">
+        <button class="control-button" aria-label="Sound Profile ${i}" title="Sound Profile ${i}" style="top:2px;">
           <svg role="img" height="16" width="16" viewBox="0 0 16 16" style="fill:currentcolor">
-            <path d="M6.064 10.229l-2.418 2.418L2 11v4h4l-1.647-1.646 2.418-2.418-.707-.707zM11 2l1.647 1.647-2.418 2.418.707.707 2.418-2.418L15 6V2h-4z">
+            <path d="${path}">
               <!--TODO change svg image-->
             </path>
           </svg>
         </button>`;
     newDiv.addEventListener("click", function() {
+      volume = Spicetify.LocalStorage.get(this.id);
       Spicetify.Player.setVolume(parseFloat(volume));
     });
 
@@ -304,4 +305,5 @@ function SoundProfiles(){
 }
 
 //The arrive is necessary because it seems like spotify loads a first page first
+//but I need the second one
 document.arrive(".ReactModalPortal", SoundProfiles);

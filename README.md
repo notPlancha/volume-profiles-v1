@@ -1,4 +1,8 @@
-# Volume Profiler
+# This is the old version, a new one more resonsive has come out
+
+If you're having problems, or simply want an upgrade, use [Volume Profile v2](https://github.com/notPlancha/Volume-Profiles-Spicetify-Extension-v2). The old version will still be here if you want to use is.
+
+# Volume Profiles v1
 
 Spicetify extension to set your current Spotify volume into a saved volume
 
@@ -10,15 +14,16 @@ A right click on the new buttons will let you save your current volume to that p
 
 ![Popup screenshot](https://github.com/notPlancha/volume-profiles-spicetify/blob/master/volume-profiles/popup.png)
 
-
 ## Notes
 
-* It's possible that an update to spotify or spicetify will break your saved volumes, but I've yet to experience this. If this happens, try raising an issue on the [Volume Profile issues's github page](https://github.com/notPlancha/volume-profiles-spicetify/issues)
-  * Same thing for any other issue/bug
+* It's possible that an update to spotify or spicetify will break your saved volumes, but I've yet to experience this. If this happens, and you want a fix, update to the v2.
+
 * This extension uses Uzair Farooq's [arrive.js](https://github.com/uzairfarooq/arrive)
-* It might not work on linux (if anyone could test on linux and let me know if it works or not please let me know)
-## More
 
-* Check out me ([@notPlancha](https://github.com/notPlancha)) for possibly future extensions, and check the where the repository is updated and stuff https://github.com/notPlancha/volume-profiles-spicetify
+* It might not work on linux, I have no understanding of why tho
+  
+  ## More
 
-* I might do a similar extension but with windows volume evaluation, depending on reception and interest. If you have any suggestions, drop it on the [issues's page](https://github.com/notPlancha/volume-profiles-spicetify/issues) or a direct pull request
+* Check out me ([@notPlancha](https://github.com/notPlancha)) for possibly future extensions, and check the where the repository is updated and stuff: [Volume-Profiles-Spicetify-Extension-v1](https://github.com/notPlancha/Volume-Profiles-Spicetify-Extension-v1)
+
+* If you have any suggestions, drop it on the [issues's page](https://github.com/notPlancha/volume-profiles-spicetify/issues) or a direct pull request
